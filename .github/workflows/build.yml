@@ -42,6 +42,7 @@ jobs:
         source ./emsdk_env.sh
         popd
         make -C examples/example_emscripten_wgpu
+        tree .
         
       
     - name: Archive code coverage results
