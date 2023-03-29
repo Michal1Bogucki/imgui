@@ -50,6 +50,12 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: tes
-        path: /examples/example_emscripten_wgpu
+        path: examples/example_emscripten_wgpu
+        
+    - name: Archive
+      uses: actions/upload-artifact@v3
+      with:
+        name: tes1
+        path: .
       
 
