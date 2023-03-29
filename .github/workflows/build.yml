@@ -42,9 +42,13 @@ jobs:
         source ./emsdk_env.sh
         popd
         make -C examples/example_emscripten_wgpu
-        tree .
+    
         
       
     - name: Archive code coverage results
       uses: actions/upload-artifact@v3
+      with:
+        name: tes
+        path: home/runner/work/imgui/imgui/examples/example_emscripten_wgpu
+      
 
