@@ -28,12 +28,12 @@ jobs:
         emsdk-master/emsdk install latest
         emsdk-master/emsdk activate latest
 
-    - name: Build example_sdl2_opengl3 with Emscripten
-      run: |
-        pushd emsdk-master
-        source ./emsdk_env.sh
-        popd
-        make -C examples/example_sdl2_opengl3 -f Makefile.emscripten
+#    - name: Build example_sdl2_opengl3 with Emscripten
+#      run: |
+#        pushd emsdk-master
+#        source ./emsdk_env.sh
+#       popd
+#        make -C examples/example_sdl2_opengl3 -f Makefile.emscripten
         
 
     - name: Build example_emscripten_wgpu
@@ -49,13 +49,16 @@ jobs:
     - name: Archive code coverage results
       uses: actions/upload-artifact@v3
       with:
-        name: tes
-        path: examples/example_emscripten_wgpu
+        name: Web files 
+        path: examples/example_emscripten_wgpu/web
         
-    - name: Archive
-      uses: actions/upload-artifact@v3
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@v4.4.1
       with:
-        name: tes1
-        path: .
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: examples/example_emscripten_wgpu/web
+          
       
+
 
